@@ -1,0 +1,12 @@
+$def with (post,comments,form)
+<h1>$post.title</h1>
+$post.posted_on<br/>
+$post.content<br/>
+<br/>
+comments:<br/><br/>
+    $for comment in comments:
+        &nbsp;&nbsp;&nbsp;&nbsp;$comment.content&nbsp;&nbsp;$comment.posted_on
+        <br/><br/>
+<form action="" method="post">
+$:form.render()
+</form>

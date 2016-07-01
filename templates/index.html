@@ -1,0 +1,19 @@
+$def with (posts, form)
+<h1>Blog posts</h1>
+$if not cookie().get('username'):
+    <form action="" method="post">
+    $:form.render()
+    </form>
+$else:
+    Welcome $cookie().get('username')!<a href="/logout" mce_href="logout">Logout</a>
+
+<ul>
+    $for post in posts:
+        <li>
+            <a href="/view/$post.id" mce_href="view/$post.id">$post.title</a>
+            on $post.posted_on
+            $if cookie().get('username'):
+                <a href="/edit/$post.id" mce_href="edit/$post.id">Edit</a>
+                <a href="/delete/$post.id" mce_href="delete/$post.id">Del</a>
+        </li>
+</ul>

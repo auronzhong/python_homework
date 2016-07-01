@@ -1,0 +1,13 @@
+$def with (form,urls)
+<h1>Input url</h1>
+<form action="" method="post">
+    $:form.render()
+</form>
+<ul>
+    $for url in urls:
+    <li>
+        $url.url
+        $if url.status == "complete":
+        <a href="/download/$url.id">Download</a>
+    </li>
+</ul>
